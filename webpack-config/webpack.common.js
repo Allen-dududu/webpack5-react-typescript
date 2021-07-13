@@ -7,8 +7,7 @@ module.exports = {
 
   entry: {
     app: './src/index.tsx',
-    // another: './src/another-module.js',
-    // vendor: ['react', 'react-dom']
+    vendor: ['react', 'react-dom']
   },
 
   output: {
@@ -63,13 +62,10 @@ module.exports = {
       template: './public/index.html',
       showErrors: true
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'common' // 指定公共 bundle 的名称。
-    // }),
     // Environment variables can be used in JS code (demo: process.env.NODE_ENV === 'production')
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    })
 
   ],
 
